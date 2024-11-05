@@ -6,7 +6,7 @@ export function QuizScreen (handleRestartClick) {
   const [questionNumber, setQuestionNumber] = useState(0)
   const [userAnswers, setUserAnswers] = useState([])
 
-  const fun1 = handleRestartClick.handleClick
+  const handleStartClick = handleRestartClick.handleClick
   
   const handleClick = (questionText, text, isCorrect)=> {
     setQuestionNumber ((prevNumber) => prevNumber +1)
@@ -15,7 +15,7 @@ export function QuizScreen (handleRestartClick) {
 
   if (questionNumber >= 10) {
     return (
-      <QuizResult props={userAnswers} handleClick={fun1} />
+      <QuizResult props={userAnswers} handleClick={handleStartClick} />
     )
   }
 
@@ -23,14 +23,14 @@ export function QuizScreen (handleRestartClick) {
 
   return (
     <>
-      <h2> Pytanie nr {questionNumber+1}: {questionText} </h2>
+      <h2 className="container"> Pytanie nr {questionNumber+1}: {questionText} </h2>
       {QUESTIONS[questionNumber].answers.map(({text, isCorrect}, index)=> {
         return (
           <>
           <button 
             key={index}
             onClick={() => handleClick(questionText, text, isCorrect)}
-            className='question__button'
+            className='container__button'
           >
             {text}
           </button>

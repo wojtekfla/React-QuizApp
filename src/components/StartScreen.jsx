@@ -1,5 +1,3 @@
-// import { Button } from "./Button";
-
 export function StartScreen ({handleClick}) {
 
   return (

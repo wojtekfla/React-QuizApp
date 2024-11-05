@@ -1,11 +1,10 @@
 export function UserAnswers( {qText, uAnswer, style, qNo}) {
 
-  console.log(qNo)
-
   return (
-    <div>
-      <p>Pytanie nr {qNo}: {qText}</p>
-      <p style={{color: style}}>{uAnswer}</p>
+    <div className="answers">
+      <div className="answers__item item--blue">Pytanie nr {qNo}: {qText}</div>
+      <div className="answers__item">Twoja odpowiedź: 
+        <p className="answer__item--userAnswer" style={{color: style}}>{uAnswer}</p></div>
     </div>
   )
 }

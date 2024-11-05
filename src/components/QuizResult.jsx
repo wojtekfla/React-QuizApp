@@ -3,12 +3,9 @@ import { UserAnswers } from "./UserAnswers"
 
 export function QuizResult (props, handleClick) {
   const userAnswers = props.props
-  console.log('user ans', userAnswers)
-
-  const fun2 = props.handleClick
-  console.log('quizRes', fun2)
-  
+  const handleStartClick = props.handleClick
   const finalScore = (userAnswers.filter((item)=> item.isCorrect === true)).length
+
   const answerElement = userAnswers.map((el) => {
       const elementStyle = el.isCorrect ? '#008000' : '#ff0000'
       const qNo = (userAnswers.indexOf(el))+1
@@ -26,11 +23,9 @@ export function QuizResult (props, handleClick) {
       <h3>Twój wynik to: {finalScore*10}% ({finalScore} z 10 poprawnych odpowiedzi)</h3>
       <br />
       <ul>{answerElement}</ul>
-      <Button handleClick={fun2}>Powrót do startu</Button>
+      <Button handleClick={handleStartClick}>Powrót do startu</Button>
     </>
   )
 }
-
-//  (<StartScreen />) 
-// <button>Powrót do startu</button>           
+    
     
